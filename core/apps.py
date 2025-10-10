@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LoyihaConfig(AppConfig):
+class CoreConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'loyiha'
+    name = 'core'

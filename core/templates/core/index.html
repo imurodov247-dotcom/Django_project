@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <title>Market</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border 
+        }
+
+        .container{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .title{
+            margin-bottom: 20px;
+        }
+        .title-desc{
+            margin-bottom: 20px;
+
+        }
+         .barcha_dokonlar{
+            margin-bottom: 20px;
+
+        }
+        .dokon_card{
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .mahsulot_listi li{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .dokon_nomi{
+            background-color: blue;
+            color: white;
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 10px ;
+            margin-bottom: 10px ;
+        }
+        .narx{
+            color: orange;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body>
-    <h1>Hello World</h1>
+<body class="w-full ">
+    <div class="container "></div>
+            <h1 class="title">Do'konlar va Maxsulotlar </h1>
+            <p class="title-desc">Barcha do'konlar va mahsulotlar ro'yhati</p>
+
+            <h2 class="barcha dokonlar">Barcha do'konlar</h2>    
+            
+            {% for item in dokon_list %}
+                <div class="dokon_card">
+                    <div class="dokon_nomi">
+                        <h3>{{item.dokon.nomi}}({{item.dokon.manzili}}) </h3>
+                    </div>
+                    <ul class="mahsulot_listi">
+                        
+                        {% for mahsulot in item.mahsulotlar   %}
+                            <li>
+                            <p class="nomi">{{mahsulot.nomi}}</p>
+                            <p class="narx">{{mahsulot.narxi}}</p>
+                        </li>
+                        
+                        {% endfor %}
+                            
+                    </ul>
+                </div>
+                
+            {% endfor %}
+                
 </body>
 </html>
